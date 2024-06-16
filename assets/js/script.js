@@ -28,7 +28,7 @@
 		}
 	}
 	
-	headerStyle();
+	// headerStyle();
 
 	function checkViewportSize() {
 		const width = window.innerWidth;
@@ -52,7 +52,7 @@
 	  checkViewportSize();
 	  
 	  // Check size on window resize
-	  window.addEventListener('resize', checkViewportSize);
+	  window.addEventListener('scroll', checkViewportSize);
 	  
 	
 	
