@@ -763,6 +763,9 @@
 	.feature-block_inner{
 		padding-left: 0px;
 	}
+	.feature-block_inner_event{
+		padding-left: 0px;
+	}
 
 	.feature-block_icon{
 		position: relative;

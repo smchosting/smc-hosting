@@ -4453,6 +4453,10 @@
 	min-height: 160px;
 	padding-left: 170px;
 }
+.feature-block_inner_event{
+	position: relative;
+	min-height: 160px;
+}
 
 .feature-block_icon{
 	position: absolute;
@@ -4548,7 +4552,7 @@
 .service-detail h3{
 	position: relative;
 	margin-bottom: 25px;
-	color: white;
+	color: var(--main-color);
 }
 
 .service-detail_video{
