@@ -9043,3 +9043,6 @@
 .first-logo-nav{
 	width: 150px;
 }
+.feature-block_inner_event>h3{
+	color: var(--main-color);
+}
