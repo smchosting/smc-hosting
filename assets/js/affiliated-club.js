@@ -3,6 +3,27 @@ $(document).ready(function() {
       .then(response => response.json())
       .then(data => {
         console.log(data);
+
+        // <div class="col-md-6">
+		// 				<label for="cars">Choose Your State</label>
+		// 				<select name="state" id="state-input">
+		// 				  <option value="Kerala">Kerala</option>
+		// 				  <option value="Tamil Nadu">Tamil Nadu</option>
+		// 				</select> 
+		// 			</div>
+
+        const stateInput = $('#state-input');
+const uniqueStates = [...new Set(data.map(element => element.state))]; // Extract unique states
+
+uniqueStates.forEach(state => {
+    console.log(state);
+    
+    const option = document.createElement('option');
+    option.value = state;
+    option.textContent = state;
+    stateInput.append(option);
+});
+
         
         // const container = document.getElementById('lift-image-container');
         // images.forEach(image => {
@@ -22,5 +43,5 @@ $(document).ready(function() {
 
        
       })
-      .catch(error => console.error('Error fetching images:', error));
+      .catch(error => console.error('Error fetching data:', error));
   });

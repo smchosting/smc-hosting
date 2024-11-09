@@ -1,43 +1,43 @@
 [
     {
         "club":"Thiruvananthapuram-club-1",
-        "sate":"Kerala",
+        "state":"Kerala",
         "city":"Thiruvananthapuram"
     },
     {
         "club":"Kollam-club-1",
-        "sate":"Kerala",
+        "state":"Kerala",
         "city":"Kollam"
     },
     {
         "club":"Kollam-club-2",
-        "sate":"Kerala",
+        "state":"Kerala",
         "city":"Kollam"
     },
     {
         "club":"Palakkad-club-1",
-        "sate":"Kerala",
+        "state":"Kerala",
         "city":"Palakkad"
     },
     {
         "club":"Kochi-club-1",
-        "sate":"Kerala",
+        "state":"Kerala",
         "city":"Kochi"
     },
     {
         "club":"calicut-club-2",
-        "sate":"Kerala",
+        "state":"Kerala",
         "city":"calicut"
     },
 
     {
         "club":"Coimbatore-club",
-        "sate":"Tamil Nadu",
+        "state":"Tamil Nadu",
         "city":"Coimbatore"
     },
     {
         "club":"Chennai-club-2",
-        "sate":"Tamil Nadu",
+        "state":"Tamil Nadu",
         "city":"Chennai "
     }
 ]
