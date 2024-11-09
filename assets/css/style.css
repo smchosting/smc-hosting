@@ -4590,7 +4590,7 @@
 .service-detail p{
 	margin-bottom: 30px;
 	color: #dbdada;
-	font-size: 20px;
+	/* font-size: 20px; */
 }
 
 .service-detail_list{
@@ -4631,7 +4631,7 @@
 .service-detail h3{
 	position: relative;
 	margin-bottom: 25px;
-	color: white;
+	color: var(--main-color);
 }
 
 .service-detail_video{
