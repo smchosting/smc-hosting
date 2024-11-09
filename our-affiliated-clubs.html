@@ -265,7 +265,7 @@
 		<div class="auto-container">
 			<div class="row clearfix" id="lift-image-container">
 
-				<div class="row">
+				<div class="row div-choose-section">
 					<div class="col-md-6">
 						<label for="cars">Choose Your State</label>
 						<select name="state" id="state">
@@ -276,7 +276,7 @@
 
 					<div class="col-md-6">
 						<label for="cars">Choose Your City</label>
-						<select name="state" id="state">
+						<select name="city" id="city">
 						  <option value="Kerala">Kerala</option>
 						  <option value="Tamil Nadu">Tamil Nadu</option>
 						</select> 
@@ -465,49 +465,6 @@
 <script src="assets/js/jquery.marquee.min.js"></script>
 
 <script src="assets/js/script.js"></script>
-<!-- <script>
-	$(document).ready(function() {
-      fetch('assets/json/lift-inauguration.json')
-        .then(response => response.json())
-        .then(images => {
-          const container = document.getElementById('lift-image-container');
-          images.forEach(image => {
-            const block = document.createElement('div');
-            block.className = 'project-block_one col-lg-4 col-md-6 col-sm-12';
-            block.innerHTML = `
-              <div class="project-block_one-inner wow fadeInRight" data-wow-delay="300ms" data-wow-duration="1500ms">
-                <a href="${image}" title="" class="popup-link">
-                  <div class="gallery-card">
-                    <img src="${image}" alt="Image">
-                  </div>
-                </a>
-              </div>
-            `;
-            container.appendChild(block);
-          });
-
-          // Initialize Magnific Popup after all images are added
-          $('.popup-link').magnificPopup({
-            type: 'image',
-            mainClass: 'mfp-fade',
-            removalDelay: 300,
-            gallery: {
-              enabled: true,
-              navigateByImgClick: true,
-              preload: [0, 1] // Preloads the previous and next images
-            },
-            callbacks: {
-              open: function() {
-                console.log('Popup is opened');
-              },
-              close: function() {
-                console.log('Popup is closed');
-              }
-            }
-          });
-        })
-        .catch(error => console.error('Error fetching images:', error));
-    });
-</script> -->
+<script src="assets/js/affiliated-club.js"></script>
 </body>
 </html>

@@ -2,12 +2,31 @@ table {
     width: 100%;
     border-collapse: collapse;
 }
-th, td {
+
+th,
+td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: left;
 }
+
 th {
     background-color: #0a0a0a;
     color: var(--main-color);
+}
+.div-choose-section{
+    padding: 30px 10px;
+}
+label {
+    font-size: 19px;
+}
+
+select {
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    background: black;
+    color: white;
+    border: solid #400303 0.1px;
 }
