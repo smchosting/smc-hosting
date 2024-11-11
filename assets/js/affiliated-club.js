@@ -27,8 +27,9 @@ const createStateInput = (data) =>{
 }
 
 //creating city inputs
-const createCityInput = (data) =>{
-    const uniqueCity = [...new Set(data.map(element => element.city))]; // Extract unique city
+const createCityInput = (data, state) =>{
+    const currentState = data.filter(club => club.state === state);
+    const uniqueCity = [...new Set(currentState.map(element => element.city))]; // Extract unique city
     uniqueCity.forEach(city => {
         const option = document.createElement('option');
         option.value = city;
@@ -50,7 +51,8 @@ $(document).ready(async function () {
         .then(data => {
             console.log(data);
             createStateInput(data)
-            createCityInput(data)
+            const currentState = stateInput.val()
+            createCityInput(data, currentState)
         })
         .catch(error => console.error('Error fetching data:', error));
 });
