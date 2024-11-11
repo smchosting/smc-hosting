@@ -2,42 +2,57 @@
     {
         "club":"Thiruvananthapuram-club-1",
         "state":"Kerala",
-        "city":"Thiruvananthapuram"
+        "city":"Thiruvananthapuram",
+        "phone": "+94920705432"
     },
     {
         "club":"Kollam-club-1",
         "state":"Kerala",
-        "city":"Kollam"
+        "city":"Kollam",
+        "phone": "+94920705432"
+
     },
     {
         "club":"Kollam-club-2",
         "state":"Kerala",
-        "city":"Kollam"
+        "city":"Kollam",
+        "phone": "+94920705432"
+
     },
     {
         "club":"Palakkad-club-1",
         "state":"Kerala",
-        "city":"Palakkad"
+        "city":"Palakkad",
+        "phone": "+94920705432"
+
     },
     {
         "club":"Kochi-club-1",
         "state":"Kerala",
-        "city":"Kochi"
+        "city":"Kochi",
+        "phone": "+94920705432"
+
     },
     {
         "club":"calicut-club-2",
         "state":"Kerala",
-        "city":"calicut"
+        "city":"calicut",
+        "phone": "+94920705432"
+
     },
 
     {
         "club":"Coimbatore-club",
         "state":"Tamil Nadu",
-        "city":"Coimbatore"
+        "city":"Coimbatore",
+        "phone": "+94920705432"
+
     },
     {
         "club":"Chennai-club-2",
         "state":"Tamil Nadu",
-        "city":"Chennai "
+        "city":"Chennai ",
+        "phone": "+94920705432"
+
     }
 ]

@@ -2,18 +2,19 @@
 
 const stateInput = $('#state-input');
 const cityInput = $('#city-input');
+const tableBody = $('#table-body');
+
 
 //function for data fetching from json
-const dataFetching = () =>{
-    fetch('assets/json/affiliated-clubs.json')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            
-            return data
-        })
-        .catch(error => console.error('Error fetching data:', error));
-}
+const dataFetching = async () => {
+    try {
+        const response = await fetch('assets/json/affiliated-clubs.json');
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+};
 
 //creating state inputs
 const createStateInput = (data) =>{
@@ -26,9 +27,27 @@ const createStateInput = (data) =>{
     });
 }
 
+//function for table Creating
+const tableCreator = (data) =>{
+    // tableBody.innerHTML = ""; // Clear any existing rows
+    $('#table-body').empty();
+    data.forEach(club => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${club.club}</td>
+            <td>${club.state}</td>
+            <td>${club.city}</td>
+            <td>${club.phone}</td>
+        `;
+        tableBody.append(row);
+    });
+}
+
 //creating city inputs
 const createCityInput = (data, state) =>{
+    $('#city-input').empty();
     const currentState = data.filter(club => club.state === state);
+    tableCreator(currentState)
     const uniqueCity = [...new Set(currentState.map(element => element.city))]; // Extract unique city
     uniqueCity.forEach(city => {
         const option = document.createElement('option');
@@ -38,10 +57,14 @@ const createCityInput = (data, state) =>{
     });
 }
 
-const stateInputChange = () =>{
+const stateInputChange = async () =>{
+    const data = await dataFetching()
+    createCityInput(data, stateInput.val())
 }
 const cityInputChange = () =>{
 }
+
+
 
 
 
@@ -51,8 +74,7 @@ $(document).ready(async function () {
         .then(data => {
             console.log(data);
             createStateInput(data)
-            const currentState = stateInput.val()
-            createCityInput(data, currentState)
+            createCityInput(data, stateInput.val())
         })
         .catch(error => console.error('Error fetching data:', error));
 });
