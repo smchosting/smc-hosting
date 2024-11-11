@@ -5,6 +5,8 @@ $(document).ready(function () {
             console.log(data);
 
 
+
+
             const stateInput = $('#state-input');
             const uniqueStates = [...new Set(data.map(element => element.state))]; // Extract unique states
             uniqueStates.forEach(state => {
@@ -15,6 +17,7 @@ $(document).ready(function () {
                 option.textContent = state;
                 stateInput.append(option);
             });
+            
 
             const cityInput = $('#city-input');
             const uniqueCity = [...new Set(data.map(element => element.city))]; // Extract unique city
@@ -49,3 +52,24 @@ $(document).ready(function () {
         })
         .catch(error => console.error('Error fetching data:', error));
 });
+
+const stateInputChange = () =>{
+    const stateInput = $('#state-input');
+    const cityInput = $('#city-input');
+    console.log("stateInput.value");
+    console.log(stateInput.val(), cityInput.val());
+    
+    dataFetching(stateInput.val(), cityInput.val())
+}
+
+const dataFetching = (state, city) =>{
+    console.log(city);
+    fetch('assets/json/affiliated-clubs.json')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    
+    
+}
