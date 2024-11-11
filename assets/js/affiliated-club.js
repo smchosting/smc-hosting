@@ -1,75 +1,79 @@
-$(document).ready(function () {
+
+
+const stateInput = $('#state-input');
+const cityInput = $('#city-input');
+
+//function for data fetching from json
+const dataFetching = () =>{
     fetch('assets/json/affiliated-clubs.json')
         .then(response => response.json())
         .then(data => {
             console.log(data);
-
-
-
-
-            const stateInput = $('#state-input');
-            const uniqueStates = [...new Set(data.map(element => element.state))]; // Extract unique states
-            uniqueStates.forEach(state => {
-                console.log(state);
-
-                const option = document.createElement('option');
-                option.value = state;
-                option.textContent = state;
-                stateInput.append(option);
-            });
             
+            return data
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
 
-            const cityInput = $('#city-input');
-            const uniqueCity = [...new Set(data.map(element => element.city))]; // Extract unique city
-            uniqueCity.forEach(city => {
-                console.log(city);
+const createStateInput = (data) =>{
+    const uniqueStates = [...new Set(data.map(element => element.state))]; // Extract unique states
+    uniqueStates.forEach(state => {
+        console.log(state);
 
-                const option = document.createElement('option');
-                option.value = city;
-                option.textContent = city;
-                cityInput.append(option);
-            });
-            
+        const option = document.createElement('option');
+        option.value = state;
+        option.textContent = state;
+        stateInput.append(option);
+    });
+}
+
+const stateInputChange = () =>{
+}
+const cityInputChange = () =>{
+}
 
 
-            // const container = document.getElementById('lift-image-container');
-            // images.forEach(image => {
-            //   const block = document.createElement('div');
-            //   block.className = 'project-block_one col-lg-4 col-md-6 col-sm-12';
-            //   block.innerHTML = `
-            //     <div class="project-block_one-inner wow fadeInRight" data-wow-delay="300ms" data-wow-duration="1500ms">
-            //       <a href="${image}" title="" class="popup-link">
-            //         <div class="gallery-card">
-            //           <img src="${image}" alt="Image">
-            //         </div>
-            //       </a>
-            //     </div>
-            //   `;
-            //   container.appendChild(block);
+
+
+
+
+
+
+$(document).ready(async function () {
+
+    fetch('assets/json/affiliated-clubs.json')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            createStateInput(data)
+
+
+
+
+            // const stateInput = $('#state-input');
+            // const uniqueStates = [...new Set(data.map(element => element.state))]; // Extract unique states
+            // uniqueStates.forEach(state => {
+            //     console.log(state);
+
+            //     const option = document.createElement('option');
+            //     option.value = state;
+            //     option.textContent = state;
+            //     stateInput.append(option);
             // });
+            
 
+            // const cityInput = $('#city-input');
+            // const uniqueCity = [...new Set(data.map(element => element.city))]; // Extract unique city
+            // uniqueCity.forEach(city => {
+            //     console.log(city);
+
+            //     const option = document.createElement('option');
+            //     option.value = city;
+            //     option.textContent = city;
+            //     cityInput.append(option);
+            // });
+            
 
         })
         .catch(error => console.error('Error fetching data:', error));
 });
-
-const stateInputChange = () =>{
-    const stateInput = $('#state-input');
-    const cityInput = $('#city-input');
-    console.log("stateInput.value");
-    console.log(stateInput.val(), cityInput.val());
-    
-    dataFetching(stateInput.val(), cityInput.val())
-}
-
-const dataFetching = (state, city) =>{
-    console.log(city);
-    fetch('assets/json/affiliated-clubs.json')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => console.error('Error fetching data:', error));
-    
-    
-}
