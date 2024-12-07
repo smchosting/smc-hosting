@@ -51,7 +51,10 @@ const createCityInput = (data, state) =>{
 }
 
 const stateInputChange = async () =>{
+    
     const data = await dataFetching()
+    console.log(data);
+
     createCityInput(data, stateInput.val())
 }
 

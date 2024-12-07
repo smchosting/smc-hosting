@@ -1,58 +1,112 @@
 [
     {
-        "club":"Thiruvananthapuram-club-1",
-        "state":"Kerala",
-        "city":"Thiruvananthapuram",
-        "phone": "+94920705432"
+      "ClubNo": 1,
+      "ClubName": "Ramavarma Club",
+      "Country": "India",
+      "State": "Kerala",
+      "City": "Kollam",
+      "Address": "Thevally, Kollam - 690 009",
+      "PhoneNumbers": ["0474-2792587", "0474-2793597", "0474-2794196"]
     },
     {
-        "club":"Kollam-club-1",
-        "state":"Kerala",
-        "city":"Kollam",
-        "phone": "+94920705432"
-
+      "ClubNo": 2,
+      "ClubName": "National Club",
+      "Country": "India",
+      "State": "Kerala",
+      "City": "Pathanamthitta",
+      "Address": "P.B No.61, Kumbanad-689 547",
+      "PhoneNumbers": ["0469-2665977"]
     },
     {
-        "club":"Kollam-club-2",
-        "state":"Kerala",
-        "city":"Kollam",
-        "phone": "+94920705432"
-
+      "ClubNo": 3,
+      "ClubName": "Travancore Club",
+      "Country": "India",
+      "State": "Kerala",
+      "City": "Thiruvalla",
+      "Address": "Perumthuruthy P.O, Thiruvalla - 689 107",
+      "PhoneNumbers": ["0469-2645909", "0469-2645409"]
     },
     {
-        "club":"Palakkad-club-1",
-        "state":"Kerala",
-        "city":"Palakkad",
-        "phone": "+94920705432"
-
+      "ClubNo": 4,
+      "ClubName": "The Changanacherry Club",
+      "Country": "India",
+      "State": "Kerala",
+      "City": "Changanacherry",
+      "Address": "Bye-Pass Road, Vazhappally Chira, Changanacherry-686103",
+      "PhoneNumbers": ["0481-3203365"]
     },
     {
-        "club":"Kochi-club-1",
-        "state":"Kerala",
-        "city":"Kochi",
-        "phone": "+94920705432"
-
+      "ClubNo": 5,
+      "ClubName": "Rama Varma District Club",
+      "Country": "India",
+      "State": "Kerala",
+      "City": "Alleppey",
+      "Address": "Near District Hospital Jn, Palace Ward, Alleppey - 688 011",
+      "PhoneNumbers": ["0477-2251436", "0477-2238544"]
     },
     {
-        "club":"calicut-club-2",
-        "state":"Kerala",
-        "city":"calicut",
-        "phone": "+94920705432"
-
-    },
-
-    {
-        "club":"Coimbatore-club",
-        "state":"Tamil Nadu",
-        "city":"Coimbatore",
-        "phone": "+94920705432"
-
+      "ClubNo": 6,
+      "ClubName": "The Alleppey United Club",
+      "Country": "India",
+      "State": "Kerala",
+      "City": "Alappuzha",
+      "Address": "Beach Road, Sea-view ward, Alappuzha-680 012",
+      "PhoneNumbers": ["0477-2243688", "88487 78813"],
+      "Email": "thealleppeyunitedclub@gmail.com"
     },
     {
-        "club":"Chennai-club-2",
-        "state":"Tamil Nadu",
-        "city":"Chennai ",
-        "phone": "+94920705432"
-
+      "ClubNo": 7,
+      "ClubName": "Kottayam Club",
+      "Country": "India",
+      "State": "Kerala",
+      "City": "Kottayam",
+      "Address": "Devalokam Road, Muttambalam, Kottayam - 686 004",
+      "PhoneNumbers": ["0481-2578903", "0481-2576072"]
+    },
+    {
+      "ClubNo": 8,
+      "ClubName": "Rama Varma Union Club",
+      "Country": "India",
+      "State": "Kerala",
+      "City": "Kottayam",
+      "Address": "Union Club Road, Kottayam - 686 001",
+      "PhoneNumbers": ["0481-2582946", "0481-2565448"]
+    },
+    {
+      "ClubNo": 9,
+      "ClubName": "The Citizen Club",
+      "Country": "India",
+      "State": "Kerala",
+      "City": "Kottayam",
+      "Address": "Kodimatha, M.C Road, Kottayam - 686 039",
+      "PhoneNumbers": ["0481-2361744", "0481-2360798"]
+    },
+    {
+      "ClubNo": 10,
+      "ClubName": "The Kanjirapally Club",
+      "Country": "India",
+      "State": "Kerala",
+      "City": "Kanjirapally",
+      "Address": "Kanjirapally, Kottayam - 686 507",
+      "PhoneNumbers": ["04828-202459", "04828-203287", "04828-201013"]
+    },
+    {
+      "ClubNo": 11,
+      "ClubName": "Mundakayam Club",
+      "Country": "India",
+      "State": "Kerala",
+      "City": "Mundakayam",
+      "Address": "Mundakayam - 686513",
+      "PhoneNumbers": ["04828-2326039"]
+    },
+    {
+      "ClubNo": 12,
+      "ClubName": "The District Rifle Association of Idukki",
+      "Country": "India",
+      "State": "Kerala",
+      "City": "Idukki",
+      "Address": "Office at Muttom, 11/139/A, Thodupuzha-685 587",
+      "PhoneNumbers": ["04862-255094"]
     }
-]
+  ]
+  
