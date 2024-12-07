@@ -14,11 +14,11 @@ const dataFetching = async () => {
 };
 
 const createStateInput = (data) =>{
-    const uniqueStates = [...new Set(data.map(element => element.state))]; // Extract unique states
-    uniqueStates.forEach(state => {
+    const uniqueStates = [...new Set(data.map(element => element.State))]; // Extract unique states
+    uniqueStates.forEach(State => {
         const option = document.createElement('option');
-        option.value = state;
-        option.textContent = state;
+        option.value = State;
+        option.textContent = State;
         stateInput.append(option);
     });
 }
@@ -29,7 +29,7 @@ const tableCreator = (data) =>{
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${club.club}</td>
-            <td>${club.state}</td>
+            <td>${club.State}</td>
             <td>${club.city}</td>
             <td>${club.phone}</td>
         `;
@@ -37,9 +37,9 @@ const tableCreator = (data) =>{
     });
 }
 
-const createCityInput = (data, state) =>{
+const createCityInput = (data, State) =>{
     $('#city-input').empty();
-    const currentState = data.filter(club => club.state === state);
+    const currentState = data.filter(club => club.State === State);
     tableCreator(currentState)
     const uniqueCity = [...new Set(currentState.map(element => element.city))]; // Extract unique city
     uniqueCity.forEach(city => {
@@ -53,8 +53,6 @@ const createCityInput = (data, state) =>{
 const stateInputChange = async () =>{
     
     const data = await dataFetching()
-    console.log(data);
-
     createCityInput(data, stateInput.val())
 }
 
@@ -67,6 +65,8 @@ const cityInputChange = async () =>{
 
 $(document).ready(async function () {
     const data = await dataFetching()
+    console.log("data");
+    console.log(data);
     createStateInput(data)
     createCityInput(data, stateInput.val())
 });
