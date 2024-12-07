@@ -30,7 +30,7 @@ const tableCreator = (data) =>{
         row.innerHTML = `
             <td>${club.club}</td>
             <td>${club.State}</td>
-            <td>${club.city}</td>
+            <td>${club.City}</td>
             <td>${club.phone}</td>
         `;
         tableBody.append(row);
@@ -41,11 +41,11 @@ const createCityInput = (data, State) =>{
     $('#city-input').empty();
     const currentState = data.filter(club => club.State === State);
     tableCreator(currentState)
-    const uniqueCity = [...new Set(currentState.map(element => element.city))]; // Extract unique city
-    uniqueCity.forEach(city => {
+    const uniqueCity = [...new Set(currentState.map(element => element.City))]; // Extract unique City
+    uniqueCity.forEach(City => {
         const option = document.createElement('option');
-        option.value = city;
-        option.textContent = city;
+        option.value = City;
+        option.textContent = City;
         cityInput.append(option);
     });
 }
@@ -58,7 +58,7 @@ const stateInputChange = async () =>{
 
 const cityInputChange = async () =>{
     const data = await dataFetching()
-    const currentCity = data.filter(club => club.city === cityInput.val());
+    const currentCity = data.filter(club => club.City === cityInput.val());
     tableCreator(currentCity)
     
 }
