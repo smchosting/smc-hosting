@@ -28,10 +28,10 @@ const tableCreator = (data) =>{
     data.forEach(club => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${club.club}</td>
+            <td>${club.ClubName}  <br> - ${club.Address}</td>
             <td>${club.State}</td>
             <td>${club.City}</td>
-            <td>${club.phone}</td>
+            <td>${club.PhoneNumbers.join('<br>')}</td>
         `;
         tableBody.append(row);
     });
