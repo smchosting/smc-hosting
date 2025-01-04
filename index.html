@@ -121,18 +121,21 @@
 
 											<li class="dropdown"><a href="#">Services</a>
 												<ul>
-													<li><a href="services.html#smc-wedding">Weddings & Receptions</a></li>
+													<li><a href="services.html#smc-wedding">Weddings & Receptions</a>
+													</li>
 													<li><a href="services.html#smc-concerts">Concerts Events</a></li>
 													<li><a href="services.html#smc-seminars">Seminars & Conferences</a>
 													</li>
 													<li><a href="services.html#smc-dinners">Banquets Dinners</a></li>
 													<li><a href="services.html#smc-training">Workshops Sessions</a></li>
 													<li><a href="services.html#smc-exhibitions">Exhibitions</a></li>
-													<li><a href="services.html#smc-product-launches">Product Launches</a>
+													<li><a href="services.html#smc-product-launches">Product
+															Launches</a>
 													</li>
 													<li><a href="services.html#smc-parties">Parties & Celebrations</a>
 													</li>
-													<li><a href="services.html#smc-award-ceremonies">Award Ceremonies</a>
+													<li><a href="services.html#smc-award-ceremonies">Award
+															Ceremonies</a>
 													</li>
 												</ul>
 											</li>
@@ -196,7 +199,8 @@
 					<div class="nav-logo"><a href="index.html"><img src="assets/img/sri-mulam.png" alt="" title=""></a>
 					</div>
 					<div class="menu-outer">
-						<!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+						<!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+					</div>
 				</nav>
 			</div>
 			<!-- End Mobile Menu -->
@@ -1041,31 +1045,39 @@
 						</div>
 
 						<!-- Footer Column -->
-						<div class="footer-column col-lg-4 col-md-6 col-sm-12">
+						<div class="footer-column col-lg-2 col-md-6 col-sm-12">
 							<div class="footer-widget links-widget">
 								<h5>quick links</h5>
 								<ul class="footer-list">
 									<li><a href="index.html">Home</a></li>
 									<li><a href="about-us.html">About Us</a></li>
-									<li><a href="events.html">Our Events</a></li>
 									<li><a href="facilities.html">Facilities</a></li>
-									<li><a href="services.html">Our Services</a></li>
-									<li><a href="royal-hall.html">Royal Hall </a></li>
-									<li><a href="orchid-hall.html">Orchid Hall </a></li>
+									<li><a href="events.html">Our Events</a></li>
+									<li><a href="contact.html">Contact Us</a></li>
+
 								</ul>
 							</div>
 						</div>
 
 						<!-- Footer Column -->
-						<div class="footer-column col-lg-4 col-md-6 col-sm-12">
+						<div class="footer-column col-lg-3 col-md-6 col-sm-12">
 							<div class="footer-widget links-widget">
+								<h5>Our Services</h5>
 								<ul class="footer-list">
-									<li><a href="mini-hall.html">Mini Hall </a></li>
-									<li><a href="contact.html">contact Us</a></li>
+									<li><a href="services.html#smc-wedding">Weddings & Receptions</a></li>
+									<li><a href="services.html#smc-concerts">Concerts Events</a></li>
+									<li><a href="services.html#smc-seminars">Seminars & Conferences</a></li>
+									<li><a href="services.html#smc-parties">Parties & Celebrations</a></li>
+									<li><a href="services.html#smc-award-ceremonies">Award Ceremonies</a></li>
+
 								</ul>
 							</div>
+						</div>
+
+						<!-- Footer Column -->
+						<div class="footer-column col-lg-3 col-md-6 col-sm-12">
 							<div class="footer-widget contact-widget">
-								<h5 style="padding-top: 20px;">contact us</h5>
+								<h5>contact us</h5>
 								<ul class="footer-contact_list">
 									<li><span class="fa fa-phone-square"></span><a class="contact-link-a"
 											href="tel: 0471 272 2980"> 0471 272 2980</a></li>
@@ -1165,27 +1177,27 @@
 
 	<script src="assets/js/script.js"></script>
 	<script>
-		$(document).ready(function() {
-		  $('.popup-link').magnificPopup({
-			type: 'image',
-			mainClass: 'mfp-fade',
-			removalDelay: 300,
-			gallery: {
-			  enabled: true,
-			  navigateByImgClick: true,
-			  preload: [0,1] // Preloads the previous and next images
-			},
-			callbacks: {
-			  open: function() {
-				console.log('Popup is opened');
-			  },
-			  close: function() {
-				console.log('Popup is closed');
-			  }
-			}
-		  });
+		$(document).ready(function () {
+			$('.popup-link').magnificPopup({
+				type: 'image',
+				mainClass: 'mfp-fade',
+				removalDelay: 300,
+				gallery: {
+					enabled: true,
+					navigateByImgClick: true,
+					preload: [0, 1] // Preloads the previous and next images
+				},
+				callbacks: {
+					open: function () {
+						console.log('Popup is opened');
+					},
+					close: function () {
+						console.log('Popup is closed');
+					}
+				}
+			});
 		});
-		</script>
+	</script>
 
 </body>
 
