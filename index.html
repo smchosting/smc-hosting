@@ -1244,6 +1244,28 @@
 	<script src="assets/js/testimonials.js"></script>
 
 	<script src="assets/js/script.js"></script>
+	<script>
+		$(document).ready(function() {
+		  $('.popup-link').magnificPopup({
+			type: 'image',
+			mainClass: 'mfp-fade',
+			removalDelay: 300,
+			gallery: {
+			  enabled: true,
+			  navigateByImgClick: true,
+			  preload: [0,1] // Preloads the previous and next images
+			},
+			callbacks: {
+			  open: function() {
+				console.log('Popup is opened');
+			  },
+			  close: function() {
+				console.log('Popup is closed');
+			  }
+			}
+		  });
+		});
+		</script>
 
 </body>
 
