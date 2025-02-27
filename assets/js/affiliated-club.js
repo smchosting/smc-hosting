@@ -42,12 +42,22 @@ const createCityInput = (data, State) =>{
     const currentState = data.filter(club => club.State === State);
     tableCreator(currentState)
     const uniqueCity = [...new Set(currentState.map(element => element.City))]; // Extract unique City
-    uniqueCity.forEach(City => {
+    uniqueCity.forEach((City, index) => {
         const option = document.createElement('option');
+        if(index == 0){
+            const option = document.createElement('option');
+            option.value = "All";
+            option.textContent = "All";
+            cityInput.append(option);
+        }
+
         option.value = City;
         option.textContent = City;
         cityInput.append(option);
+        
     });
+    console.log(cityInput);
+
 }
 
 const stateInputChange = async () =>{

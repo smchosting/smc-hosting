@@ -9046,3 +9046,8 @@
 .feature-block_inner_event>h3{
 	color: var(--main-color);
 }
+
+.facility-icon{
+	width: 140px;
+	filter: invert(1);
+}
