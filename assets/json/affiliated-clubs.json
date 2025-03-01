@@ -94,8 +94,8 @@
       "ClubNo": 11,
       "ClubName": "Mundakayam Club",
       "Country": "India",
-      "State": "Kerala",
-      "City": "Mundakayam",
+      "State": "TamilNadu",
+      "City": "Chennai",
       "Address": "Mundakayam - 686513",
       "PhoneNumbers": ["04828-2326039"]
     },
@@ -103,8 +103,26 @@
       "ClubNo": 12,
       "ClubName": "The District Rifle Association of Idukki",
       "Country": "India",
-      "State": "Kerala",
-      "City": "Idukki",
+      "State": "TamilNadu",
+      "City": "Thambram",
+      "Address": "Office at Muttom, 11/139/A, Thodupuzha-685 587",
+      "PhoneNumbers": ["04862-255094"]
+    },
+    {
+      "ClubNo": 12,
+      "ClubName": "The District Rifle Association of Idukki",
+      "Country": "India",
+      "State": "Karnataka",
+      "City": "Bangalore",
+      "Address": "Office at Muttom, 11/139/A, Thodupuzha-685 587",
+      "PhoneNumbers": ["04862-255094"]
+    },
+    {
+      "ClubNo": 12,
+      "ClubName": "The District Rifle Association of Idukki",
+      "Country": "US",
+      "State": "newsland",
+      "City": "LA",
       "Address": "Office at Muttom, 11/139/A, Thodupuzha-685 587",
       "PhoneNumbers": ["04862-255094"]
     }
