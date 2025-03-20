@@ -169,7 +169,7 @@
 	
 	// Add Current Class Auto
 	function dynamicCurrentMenuClass(selector) {
-		let FileName = window.location.href.split("/").reverse()[0];
+		let FileName = window.location.href.split("/index.html").reverse()[0];
 
 		selector.find("li").each(function () {
 			let anchor = $(this).find("a");
