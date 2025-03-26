@@ -1,8 +1,9 @@
+const countryInput = $("#country-input");
 const stateInput = $("#state-input");
 const cityInput = $("#city-input");
-const countryInput = $("#country-input");
 const tableBody = $("#table-body");
 
+// data fetching function 
 const dataFetching = async () => {
   try {
     const response = await fetch("assets/json/affiliated-clubs.json");
@@ -13,21 +14,7 @@ const dataFetching = async () => {
   }
 };
 
-const createStateInput = (data) => {
-  const uniqueStates = [...new Set(data.map((element) => element.State))]; // Extract unique states
-  uniqueStates.forEach((State, index) => {
-    const option = document.createElement("option");
-    if (index == 0) {
-      const option = document.createElement("option");
-      option.value = "All";
-      option.textContent = "All";
-      stateInput.append(option);
-    }
-    option.value = State;
-    option.textContent = State;
-    stateInput.append(option);
-  });
-};
+// create input
 const createCountryInput = (data) => {
   const uniqueCountry = [...new Set(data.map((element) => element.Country))]; // Extract unique Country
   uniqueCountry.forEach((Country, index) => {
@@ -44,23 +31,50 @@ const createCountryInput = (data) => {
   });
 };
 
-const tableCreator = (data) => {
-  $("#table-body").empty();
-  data.forEach((club) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-            <td>${club.ClubName}  <br> - ${club.Address}</td>
-            <td>${club.State}</td>
-            <td>${club.City}</td>
-            <td>${club.PhoneNumbers.join("<br>")}</td>
-        `;
-    tableBody.append(row);
-  });
+const createStateInput = (data, Country) => {
+  $("#state-input").empty();
+
+  if (Country == "All") {
+    tableCreator(data);
+    const uniqueState = [
+        ...new Set(data.map((element) => element.State)),
+      ]; // Extract unique State
+      uniqueState.forEach((State, index) => {
+        const option = document.createElement("option");
+        if (index == 0) {
+          const option = document.createElement("option");
+          option.value = "All";
+          option.textContent = "All";
+          stateInput.append(option);
+        }
+  
+        option.value = State;
+        option.textContent = State;
+        stateInput.append(option);
+      });
+  } else {
+    const currentCountry = data.filter((club) => club.Country === Country);
+    tableCreator(currentCountry);
+    const uniqueState = [
+      ...new Set(currentCountry.map((element) => element.State)),
+    ]; // Extract unique State
+    uniqueState.forEach((State, index) => {
+      const option = document.createElement("option");
+      if (index == 0) {
+        const option = document.createElement("option");
+        option.value = "All";
+        option.textContent = "All";
+        stateInput.append(option);
+      }
+      option.value = State;
+      option.textContent = State;
+      stateInput.append(option);
+    });
+  }
 };
 
-const createCityInput = (data, State) => {
+const createCityInput = (data, State, Country) => {
   $("#city-input").empty();
-
   if (State == "All") {
     tableCreator(data);
     const uniqueCity = [
@@ -80,7 +94,9 @@ const createCityInput = (data, State) => {
         cityInput.append(option);
       });
   } else {
+
     const currentState = data.filter((club) => club.State === State);
+    
     tableCreator(currentState);
     const uniqueCity = [
       ...new Set(currentState.map((element) => element.City)),
@@ -100,14 +116,40 @@ const createCityInput = (data, State) => {
   }
 };
 
+// table create function 
+const tableCreator = (data) => {
+  $("#table-body").empty();
+  data.forEach((club) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+            <td>${club.ClubName}  <br> - ${club.Address}</td>
+            <td>${club.State}</td>
+            <td>${club.City}</td>
+            <td>${club.PhoneNumbers.join("<br>")}</td>
+        `;
+    tableBody.append(row);
+  });
+};
+
+// input change handler
 const countryInputChange = async () => {
   const data = await dataFetching();
   createStateInput(data, countryInput.val());
+  createCityInput(data, stateInput.val() ,countryInput.val());
+  if(countryInput.val() == "All"){
+    const currentCountry = data.filter((club) => club.Country);
+    tableCreator(currentCountry);
+  }else{
+    const currentCountry = data.filter((club) => club.Country === countryInput.val());
+    tableCreator(currentCountry);
+  }
+
 };
 
 const stateInputChange = async () => {
   const data = await dataFetching();
-  createCityInput(data, stateInput.val());
+  const currentState = data.filter((club) => club.State === stateInput.val());
+  tableCreator(currentState);
 };
 
 const cityInputChange = async () => {
@@ -120,6 +162,6 @@ const cityInputChange = async () => {
 $(document).ready(async function () {
   const data = await dataFetching();
   createCountryInput(data);
-  createStateInput(data);
-  createCityInput(data, stateInput.val());
+  createStateInput(data, countryInput.val());
+  createCityInput(data, stateInput.val() ,countryInput.val());
 });
