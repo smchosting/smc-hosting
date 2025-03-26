@@ -1,5 +1,6 @@
 const stateInput = $("#state-input");
 const cityInput = $("#city-input");
+const countryInput = $("#country-input");
 const tableBody = $("#table-body");
 
 const dataFetching = async () => {
@@ -25,6 +26,21 @@ const createStateInput = (data) => {
     option.value = State;
     option.textContent = State;
     stateInput.append(option);
+  });
+};
+const createCountryInput = (data) => {
+  const uniqueCountry = [...new Set(data.map((element) => element.Country))]; // Extract unique Country
+  uniqueCountry.forEach((Country, index) => {
+    const option = document.createElement("option");
+    if (index == 0) {
+      const option = document.createElement("option");
+      option.value = "All";
+      option.textContent = "All";
+      countryInput.append(option);
+    }
+    option.value = Country;
+    option.textContent = Country;
+    countryInput.append(option);
   });
 };
 
@@ -98,6 +114,7 @@ const cityInputChange = async () => {
 
 $(document).ready(async function () {
   const data = await dataFetching();
+  createCountryInput(data);
   createStateInput(data);
   createCityInput(data, stateInput.val());
 });
