@@ -236,13 +236,19 @@
 			<div class="row clearfix">
 
 				<div class="row div-choose-section">
-					<div class="col-md-6">
+					<div class="col-md-4">
+						<label for="cars">Choose Your Country</label>
+						<select onchange="countryInputChange()" name="country" id="Country-input">
+						</select> 
+					</div>
+
+					<div class="col-md-4">
 						<label for="cars">Choose Your State</label>
 						<select onchange="stateInputChange()" name="state" id="state-input">
 						</select> 
 					</div>
 
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<label for="cars">Choose Your City</label>
 						<select onchange="cityInputChange()" name="city" id="city-input">
 						</select> 
