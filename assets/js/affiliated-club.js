@@ -14,107 +14,76 @@ const dataFetching = async () => {
   }
 };
 
-// create input
-const createCountryInput = (data) => {
-  const uniqueCountry = [...new Set(data.map((element) => element.Country))]; // Extract unique Country
-  uniqueCountry.forEach((Country, index) => {
+// dynamic option creator 
+const optionCreator = (optionData, whichInput) =>{ 
+  optionData.forEach((City, index) => {
     const option = document.createElement("option");
     if (index == 0) {
       const option = document.createElement("option");
       option.value = "All";
       option.textContent = "All";
-      countryInput.append(option);
+      whichInput.append(option);
     }
-    option.value = Country;
-    option.textContent = Country;
-    countryInput.append(option);
+    option.value = City;
+    option.textContent = City;
+    whichInput.append(option);
   });
+}
+
+// create input
+const createCountryInput = (data) => {
+  const uniqueCountry = [...new Set(data.map((club) => club.Country))]; // Extract unique Country
+  optionCreator(uniqueCountry,countryInput)
 };
 
-const createStateInput = (data, Country) => {
+const createStateInput = (data, country) => {
   $("#state-input").empty();
-
-  if (Country == "All") {
-    tableCreator(data);
-    const uniqueState = [
-        ...new Set(data.map((element) => element.State)),
-      ]; // Extract unique State
-      uniqueState.forEach((State, index) => {
-        const option = document.createElement("option");
-        if (index == 0) {
-          const option = document.createElement("option");
-          option.value = "All";
-          option.textContent = "All";
-          stateInput.append(option);
-        }
-  
-        option.value = State;
-        option.textContent = State;
-        stateInput.append(option);
-      });
-  } else {
-    const currentCountry = data.filter((club) => club.Country === Country);
-    tableCreator(currentCountry);
-    const uniqueState = [
-      ...new Set(currentCountry.map((element) => element.State)),
-    ]; // Extract unique State
-    uniqueState.forEach((State, index) => {
-      const option = document.createElement("option");
-      if (index == 0) {
-        const option = document.createElement("option");
-        option.value = "All";
-        option.textContent = "All";
-        stateInput.append(option);
-      }
-      option.value = State;
-      option.textContent = State;
-      stateInput.append(option);
-    });
+  if(country === "All"){
+    const uniqueState = [...new Set(data.map((club) => club.State))];
+    optionCreator(uniqueState,stateInput)
+  }else{
+    console.log("input Change");
+    const currentCountry = data.filter((club) => club.Country == country);
+    const uniqueState = [...new Set(currentCountry.map((club) => club.State))];
+    optionCreator(uniqueState,stateInput)
   }
 };
 
-const createCityInput = (data, State, Country) => {
+const createCityInput = (data, state, country) => {
   $("#city-input").empty();
-  if (State == "All") {
-    tableCreator(data);
-    const uniqueCity = [
-        ...new Set(data.map((element) => element.City)),
-      ]; // Extract unique City
-      uniqueCity.forEach((City, index) => {
-        const option = document.createElement("option");
-        if (index == 0) {
-          const option = document.createElement("option");
-          option.value = "All";
-          option.textContent = "All";
-          cityInput.append(option);
-        }
-  
-        option.value = City;
-        option.textContent = City;
-        cityInput.append(option);
-      });
-  } else {
-
-    const currentState = data.filter((club) => club.State === State);
+  if(country === "All"){
+    console.log("country ALl");
     
-    tableCreator(currentState);
-    const uniqueCity = [
-      ...new Set(currentState.map((element) => element.City)),
-    ]; // Extract unique City
-    uniqueCity.forEach((City, index) => {
-      const option = document.createElement("option");
-      if (index == 0) {
-        const option = document.createElement("option");
-        option.value = "All";
-        option.textContent = "All";
-        cityInput.append(option);
-      }
-      option.value = City;
-      option.textContent = City;
-      cityInput.append(option);
-    });
+    if(state === "All"){
+      console.log("state ALl");
+      
+      const uniqueCity = [...new Set(data.map((club) => club.City))];
+      optionCreator(uniqueCity,cityInput)
+    }else{
+      console.log("state nt ALl");
+      console.log(state);
+      
+      const currentState = data.filter((club) => club.State == state);
+      console.log(currentState);
+      
+      const uniqueCity = [...new Set(currentState.map((club) => club.City))];
+      optionCreator(uniqueCity,cityInput)
+    }
+  }
+  else{
+    console.log("country Not ALl");
+
+    if(state === "All"){
+      const uniqueCity = [...new Set(data.map((club) => club.City))];
+      optionCreator(uniqueCity,cityInput)
+    }else{
+      const currentState = data.filter((club) => club.State == state);
+      const uniqueCity = [...new Set(currentState.map((club) => club.City))];
+      optionCreator(uniqueCity,cityInput)
+    }
   }
 };
+
 
 // table create function 
 const tableCreator = (data) => {
@@ -148,14 +117,29 @@ const countryInputChange = async () => {
 
 const stateInputChange = async () => {
   const data = await dataFetching();
-  const currentState = data.filter((club) => club.State === stateInput.val());
-  tableCreator(currentState);
+  createCityInput(data, stateInput.val() ,countryInput.val());
+  if(stateInput.val() === "All"){
+    console.log("stateInput all");
+    const currentState = data.filter((club) => club.State);
+    tableCreator(currentState);
+  }else{
+    const currentState = data.filter((club) => club.State === stateInput.val());
+    tableCreator(currentState);
+  }
 };
 
 const cityInputChange = async () => {
   const data = await dataFetching();
-  const currentCity = data.filter((club) => club.City === cityInput.val());
-  tableCreator(currentCity);
+  
+  if(cityInput.val() === "All"){
+    console.log("city all");
+    const currentCity = data.filter((club) => club.City);
+    tableCreator(currentCity);
+  }
+  else{
+    const currentCity = data.filter((club) => club.City === cityInput.val());
+    tableCreator(currentCity);
+  }
 };
 
 
@@ -164,4 +148,5 @@ $(document).ready(async function () {
   createCountryInput(data);
   createStateInput(data, countryInput.val());
   createCityInput(data, stateInput.val() ,countryInput.val());
+  tableCreator(data);
 });
