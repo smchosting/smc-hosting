@@ -88,16 +88,19 @@ const createCityInput = (data, state, country) => {
 // table create function 
 const tableCreator = (data) => {
   $("#table-body").empty();
-  data.forEach((club) => {
+  data.forEach((club, index) => {
     const row = document.createElement("tr");
     row.innerHTML = `
+            <td>${index+1}</td>
             <td>${club.ClubName}  <br> - ${club.Address}</td>
+            <td>${club.Country}</td>
             <td>${club.State}</td>
             <td>${club.City}</td>
             <td>${club.PhoneNumbers.join("<br>")}</td>
         `;
     tableBody.append(row);
   });
+  $("#total-clubs").text(`You Found ${data.length} Clubs`);
 };
 
 // input change handler
