@@ -76,12 +76,12 @@
 		
 		//Disable dropdown parent link
 		$('.navigation li.dropdown > a').on('click', function(e) {
-			e.preventDefault();
+			// e.preventDefault();
 		});
 		
 		//Disable dropdown parent link
 		$('.main-header .navigation li.dropdown > a,.hidden-bar .side-menu li.dropdown > a').on('click', function(e) {
-			e.preventDefault();
+			// e.preventDefault();
 		});
 
 		$('.xs-sidebar-group .close-button').on('click', function(e) {
