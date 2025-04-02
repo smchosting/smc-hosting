@@ -3237,7 +3237,13 @@
 	background: #FFE6AF;
     background: linear-gradient(to right, #050505 0%, #1b1b1b 100%);
 }
+@media only screen and (max-width: 1236px){
 
+	.welcome-three_color_circle{
+		z-index: -1;
+	}
+
+}
 /*** 
 
 ====================================================================
