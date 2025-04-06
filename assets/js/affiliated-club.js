@@ -42,7 +42,6 @@ const createStateInput = (data, country) => {
     const uniqueState = [...new Set(data.map((club) => club.State))];
     optionCreator(uniqueState,stateInput)
   }else{
-    console.log("input Change");
     const currentCountry = data.filter((club) => club.Country == country);
     const uniqueState = [...new Set(currentCountry.map((club) => club.State))];
     optionCreator(uniqueState,stateInput)
@@ -51,38 +50,29 @@ const createStateInput = (data, country) => {
 
 const createCityInput = (data, state, country) => {
   $("#city-input").empty();
-  if(country === "All"){
-    console.log("country ALl");
-    
-    if(state === "All"){
-      console.log("state ALl");
-      
-      const uniqueCity = [...new Set(data.map((club) => club.City))];
-      optionCreator(uniqueCity,cityInput)
-    }else{
-      console.log("state nt ALl");
-      console.log(state);
-      
-      const currentState = data.filter((club) => club.State == state);
-      console.log(currentState);
-      
-      const uniqueCity = [...new Set(currentState.map((club) => club.City))];
-      optionCreator(uniqueCity,cityInput)
-    }
-  }
-  else{
-    console.log("country Not ALl");
 
-    if(state === "All"){
-      const uniqueCity = [...new Set(data.map((club) => club.City))];
-      optionCreator(uniqueCity,cityInput)
-    }else{
-      const currentState = data.filter((club) => club.State == state);
-      const uniqueCity = [...new Set(currentState.map((club) => club.City))];
-      optionCreator(uniqueCity,cityInput)
+  let uniqueCity = [];
+
+  if (country === "All") {
+    if (state === "All") {
+      uniqueCity = [...new Set(data.map((club) => club.City))];
+    } else {
+      const currentState = data.filter((club) => club.State === state);
+      uniqueCity = [...new Set(currentState.map((club) => club.City))];
+    }
+  } else {
+    if (state === "All") {
+      uniqueCity = [...new Set(data.map((club) => club.City))];
+    } else {
+      const currentState = data.filter((club) => club.State === state);
+      uniqueCity = [...new Set(currentState.map((club) => club.City))];
     }
   }
+
+  uniqueCity.sort((a, b) => a.localeCompare(b)); // Sort alphabetically
+  optionCreator(uniqueCity, cityInput);
 };
+
 
 
 // table create function 
@@ -122,7 +112,6 @@ const stateInputChange = async () => {
   const data = await dataFetching();
   createCityInput(data, stateInput.val() ,countryInput.val());
   if(stateInput.val() === "All"){
-    console.log("stateInput all");
     const currentState = data.filter((club) => club.State);
     tableCreator(currentState);
   }else{
@@ -135,7 +124,6 @@ const cityInputChange = async () => {
   const data = await dataFetching();
   
   if(cityInput.val() === "All"){
-    console.log("city all");
     const currentCity = data.filter((club) => club.City);
     tableCreator(currentCity);
   }
