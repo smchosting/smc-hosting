@@ -33,6 +33,7 @@ const optionCreator = (optionData, whichInput) =>{
 // create input
 const createCountryInput = (data) => {
   const uniqueCountry = [...new Set(data.map((club) => club.Country))]; // Extract unique Country
+  uniqueCountry.sort((a, b) => a.localeCompare(b)); // Sort alphabetically
   optionCreator(uniqueCountry,countryInput)
 };
 
@@ -40,10 +41,12 @@ const createStateInput = (data, country) => {
   $("#state-input").empty();
   if(country === "All"){
     const uniqueState = [...new Set(data.map((club) => club.State))];
+    uniqueState.sort((a, b) => a.localeCompare(b)); // Sort alphabetically
     optionCreator(uniqueState,stateInput)
   }else{
     const currentCountry = data.filter((club) => club.Country == country);
     const uniqueState = [...new Set(currentCountry.map((club) => club.State))];
+    uniqueState.sort((a, b) => a.localeCompare(b)); // Sort alphabetically
     optionCreator(uniqueState,stateInput)
   }
 };
