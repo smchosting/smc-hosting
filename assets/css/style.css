@@ -9060,7 +9060,8 @@
 .new-h3-head{
 	position: relative;
   margin-bottom: 25px;
-  color: var(--main-color);
+  /* color: var(--main-color); */
+  color: #fff;
 }
 .facilitates-details{
 	display: flex;
