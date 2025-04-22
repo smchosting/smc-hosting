@@ -9057,3 +9057,14 @@
 	width: 140px;
 	filter: invert(1);
 }
+.new-h3-head{
+	position: relative;
+  margin-bottom: 25px;
+  color: var(--main-color);
+}
+.facilitates-details{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
